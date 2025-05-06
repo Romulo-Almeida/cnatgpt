@@ -51,8 +51,8 @@
         <div class="flex flex-wrap justify-center gap-2">
           
           <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md">ChatGPT</a>
-          <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a>
-          <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a>
+          <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
+          <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
         </div>
         </div>
 
@@ -63,8 +63,8 @@
         <div class="flex flex-wrap justify-center gap-2">
 
           <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md">ChatGPT</a>
-          <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a>
-          <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a>
+          <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
+          <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
         </div>
       </div>
 
@@ -105,8 +105,9 @@
 
     function otimizarPrompt(userPrompt) {
       userPrompt = userPrompt.charAt(0).toUpperCase() + userPrompt.slice(1);
-      const textoInicial = "Você é um assistente de IA preciso, confiável e claro. Sua tarefa é compreender cuidadosamente o pedido a seguir e fornecer uma resposta útil, livre de erros, sem inventar informações ou fazer suposições injustificadas.\n\n";
-      const textoFinal = "\n\nImportante: Responda com clareza, objetividade e base em conhecimento real. Evite erros factuais, alucinações ou afirmações sem fundamento. Caso a informação não seja conhecida ou comprovada, deixe isso claro. Estruture a resposta de forma lógica e, se possível, use exemplos ou tópicos para facilitar a compreensão. Adote um tom coerente com o tema e adequado ao público-alvo, evitando ambiguidades.";
+      const textoInicial = "You are a precise, reliable, and clear AI assistant. Your task is to carefully understand the following request and provide a helpful response, free of errors, without making up information or making unjustified assumptions.\n\n" //"Você é um assistente de IA preciso, confiável e claro. Sua tarefa é compreender cuidadosamente o pedido a seguir e fornecer uma resposta útil, livre de erros, sem inventar informações ou fazer suposições injustificadas.\n\n";
+      const textoFinal = "\n\nImportant: Respond with clarity, objectivity, and based on real knowledge. Avoid factual errors, hallucinations, or unfounded statements. If the information is unknown or unproven, make that clear. Structure the response logically and, if possible, use examples or bullet points to aid understanding. Maintain a tone consistent with the subject and appropriate for the target audience, avoiding ambiguities." //"\n\nImportante: Responda com clareza, objetividade e base em conhecimento real. Evite erros factuais, alucinações ou afirmações sem fundamento. Caso a informação não seja conhecida ou comprovada, deixe isso claro. Estruture a resposta de forma lógica e, se possível, use exemplos ou tópicos para facilitar a compreensão. Adote um tom coerente com o tema e adequado ao público-alvo, evitando ambiguidades.";
+      
       return `${textoInicial}${userPrompt}${textoFinal}`;
     }
 

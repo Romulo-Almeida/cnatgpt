@@ -50,19 +50,51 @@
       font-family: 'Inter', sans-serif;
     }
   </style>
+  <style>
+    .blinking-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 18px;
+        background-color: rgb(68, 68, 68);
+        margin-top: 2px;
+        position: relative;
+        right: 3px;
+        top: 1px;
+        animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    /* Versão alternativa com o caractere pipe | */
+    .cursor-pipe {
+        color: white;
+        font-size: 18px;
+        font-weight: normal;
+        animation: blink 1s step-end infinite;
+    }
+</style>
 </head>
 
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors">
   <main class="max-w-2xl mx-auto p-6">
     <header class="text-center mb-8">
       <h1 class="text-3xl font-bold">CnatGPT</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300">Convert needs and thoughts</p>
+      <p class="text-lg text-gray-600 dark:text-gray-300"><b>C</b>onvert <b>N</b>eeds into <b>A</b>ccurate <b>T</b>exts</p>
     </header>
 
     <section class="text-center mb-6">
-      <h2 class="text-xl font-semibold">💡 What is CnatGPT?</h2>
+      <h2 class="text-xl font-semibold">💡 About it</h2>
       <p class="text-gray-700 dark:text-gray-300 mt-2">
-        CnatGPT is a free tool that transforms vague ideas into clear and effective prompts for ChatGPT and other AIs. Perfect for users who want better answers without wasting time.
+        CnatGPT is a free tool that transforms vague ideas into clear and effective prompts for ChatGPT and other AIs.
+        <br>
+        Perfect for users who want better answers without wasting time. <span class="blinking-cursor"></span>
       </p>
     </section>
     
@@ -108,7 +140,7 @@
     </section>
 
     <footer class="text-center text-sm text-gray-500 mt-6">
-      Simple. Direct. Free.
+      Simple. Direct. Free.<br>v0.0.1<br>
     </footer>
   </main>
 

@@ -33,7 +33,7 @@
     </header>
 
     <section class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 space-y-4">
-      <label for="inputPrompt" class="block font-medium">Descreva seu prompt confuso:</label>
+      <label for="inputPrompt" class="block font-medium">Describe your unclear prompt::</label>
       <textarea id="inputPrompt" rows="5"
         placeholder="Ex: preciso de um texto engraçado sobre tecnologia que também seja inspirador..."
         class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
@@ -42,7 +42,7 @@
         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">Converter</button>
 
       <div id="outputSection" class="hidden space-y-3">
-        <p class="font-semibold">✅ Seu prompt melhorado:</p>
+        <p class="font-semibold">✅ Your improved prompt:</p>
         <div id="outputPrompt" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md text-sm whitespace-pre-wrap"></div>
 
         <div id="fixedButtons" class="hidden md:flex flex-wrap gap-2">
@@ -73,7 +73,7 @@
     </section>
 
     <footer class="text-center text-sm text-gray-500 mt-6">
-      Simples. Direto. Gratuito.
+      Simple. Direct. Free.
     </footer>
   </main>
 
@@ -86,7 +86,7 @@
     copyBtnMobile?.addEventListener('click', () => {
       const text = outputPrompt.textContent;
       navigator.clipboard.writeText(text).then(() => {
-        copyBtnMobile.textContent = 'Copiado!';
+        copyBtnMobile.textContent = 'Copied!';
         setTimeout(() => (copyBtnMobile.textContent = 'Copiar'), 1000);
       });
     });
@@ -100,7 +100,7 @@
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
       </svg>
-      <span>Gerando seu prompt...</span>
+      <span>Generating your prompt...</span>
     `;
 
     function otimizarPrompt(userPrompt) {
@@ -129,8 +129,8 @@
     copyBtn.addEventListener('click', () => {
       const text = outputPrompt.textContent;
       navigator.clipboard.writeText(text).then(() => {
-        copyBtn.textContent = 'Copiado!';
-        setTimeout(() => (copyBtn.textContent = 'Copiar'), 1000);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = 'Copy'), 1000);
       });
     });
   </script>

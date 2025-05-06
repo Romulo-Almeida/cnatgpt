@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CnatGPT - Convert needs and thoughts</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors">
+  <main class="max-w-2xl mx-auto p-6">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl font-bold">CnatGPT</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300">Convert needs and thoughts</p>
+    </header>
+
+    <section class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 space-y-4">
+      <label for="inputPrompt" class="block font-medium">Descreva seu prompt confuso:</label>
+      <textarea id="inputPrompt" rows="5"
+        placeholder="Ex: preciso de um texto engraçado sobre tecnologia que também seja inspirador..."
+        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+
+      <button id="convertBtn"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">Converter</button>
+
+      <div id="outputSection" class="hidden space-y-3">
+        <p class="font-semibold">✅ Seu prompt melhorado:</p>
+        <div id="outputPrompt" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md text-sm whitespace-pre-wrap"></div>
+
+        <div id="fixedButtons" class="hidden md:flex flex-wrap gap-2">
+          <!-- Versão desktop permanece igual -->
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtnMobile" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-1 px-3 rounded-md">Copiar</button> e ir para:</span>
+        <div class="flex flex-wrap justify-center gap-2">
+          
+          <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md">ChatGPT</a>
+          <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a>
+          <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a>
+        </div>
+        </div>
+
+        <!-- Versão fixa no mobile -->
+        <!-- Versão fixa no mobile -->
+      <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-900 shadow-inner px-4 py-3 flex flex-col items-center border-t dark:border-gray-700 space-y-2">
+        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtnMobile" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-1 px-3 rounded-md">Copiar</button> e ir para:</span>
+        <div class="flex flex-wrap justify-center gap-2">
+
+          <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-md">ChatGPT</a>
+          <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a>
+          <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a>
+        </div>
+      </div>
+
+
+      </div>
+    </section>
+
+    <footer class="text-center text-sm text-gray-500 mt-6">
+      Simples. Direto. Gratuito.
+    </footer>
+  </main>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn');
+    const outputSection = document.getElementById('outputSection');
+    const outputPrompt = document.getElementById('outputPrompt');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyBtnMobile = document.getElementById('copyBtnMobile');
+    copyBtnMobile?.addEventListener('click', () => {
+      const text = outputPrompt.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtnMobile.textContent = 'Copiado!';
+        setTimeout(() => (copyBtnMobile.textContent = 'Copiar'), 1000);
+      });
+    });
+
+    // Criar spinner dinamicamente
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loading';
+    loadingDiv.className = 'flex items-center justify-center space-x-2 text-blue-600 font-medium';
+    loadingDiv.innerHTML = `
+      <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+      <span>Gerando seu prompt...</span>
+    `;
+
+    function otimizarPrompt(userPrompt) {
+      userPrompt = userPrompt.charAt(0).toUpperCase() + userPrompt.slice(1);
+      const textoInicial = "Você é um assistente de IA preciso, confiável e claro. Sua tarefa é compreender cuidadosamente o pedido a seguir e fornecer uma resposta útil, livre de erros, sem inventar informações ou fazer suposições injustificadas.\n\n";
+      const textoFinal = "\n\nImportante: Responda com clareza, objetividade e base em conhecimento real. Evite erros factuais, alucinações ou afirmações sem fundamento. Caso a informação não seja conhecida ou comprovada, deixe isso claro. Estruture a resposta de forma lógica e, se possível, use exemplos ou tópicos para facilitar a compreensão. Adote um tom coerente com o tema e adequado ao público-alvo, evitando ambiguidades.";
+      return `${textoInicial}${userPrompt}${textoFinal}`;
+    }
+
+    convertBtn.addEventListener('click', () => {
+      const input = document.getElementById('inputPrompt').value.trim();
+      if (!input) return;
+
+      outputSection.classList.add('hidden');
+      document.querySelector('section').appendChild(loadingDiv);
+
+      setTimeout(() => {
+        const improved = otimizarPrompt(input);
+        outputPrompt.textContent = improved;
+        outputSection.classList.remove('hidden');
+        loadingDiv.remove();
+      }, 500); // Tempo do "loading"
+    });
+
+    copyBtn.addEventListener('click', () => {
+      const text = outputPrompt.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = 'Copiado!';
+        setTimeout(() => (copyBtn.textContent = 'Copiar'), 1000);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

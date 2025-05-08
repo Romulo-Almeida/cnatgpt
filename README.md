@@ -37,6 +37,6 @@ We welcome contributors of all experience levels! Whether you're a developer, de
 
 ```bash
 # Clone the repository
-git clone [https://github.com/Romulo-Almeida/cnatgpt.git
+git clone https://github.com/Romulo-Almeida/cnatgpt.git
 
 # Open index.html in your browser

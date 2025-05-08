@@ -10,7 +10,7 @@
 - Adds helpful context and constraints to get more accurate AI responses.
 - Built with a simple, clean, mobile-friendly UI using HTML, Tailwind CSS, and JavaScript.
 
-Try it live 👉 [cnatgpt.com](https://www.cnatgpt.com)
+Try it live 👉 [cnatgpt.com](https://cnatgpt.com)
 
 ---
 

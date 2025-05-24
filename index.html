@@ -258,7 +258,7 @@
       const textoInicial = "You are a precise, reliable, and clear AI assistant. Your task is to carefully understand the following request and provide a helpful response, free of errors, without making up information or making unjustified assumptions.\n\n" //"Você é um assistente de IA preciso, confiável e claro. Sua tarefa é compreender cuidadosamente o pedido a seguir e fornecer uma resposta útil, livre de erros, sem inventar informações ou fazer suposições injustificadas.\n\n";
       const textoFinal = "\n\nImportant: Respond with clarity, objectivity, and based on real knowledge. Avoid factual errors, hallucinations, or unfounded statements. If the information is unknown or unproven, make that clear. Structure the response logically and, if possible, use examples or bullet points to aid understanding. Maintain a tone consistent with the subject and appropriate for the target audience, avoiding ambiguities." //"\n\nImportante: Responda com clareza, objetividade e base em conhecimento real. Evite erros factuais, alucinações ou afirmações sem fundamento. Caso a informação não seja conhecida ou comprovada, deixe isso claro. Estruture a resposta de forma lógica e, se possível, use exemplos ou tópicos para facilitar a compreensão. Adote um tom coerente com o tema e adequado ao público-alvo, evitando ambiguidades.";
 
-      return `${textoInicial}${userPrompt}${textoFinal}`;
+      return `${textoInicial}<prompt>${userPrompt}</prompt>${textoFinal}`;
     }
 
     convertBtn.addEventListener('click', () => {

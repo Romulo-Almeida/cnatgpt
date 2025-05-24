@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8WT2L347Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-R8WT2L347Z');
@@ -19,17 +19,20 @@
   <title>CnatGPT - Enhance your AI prompts with clarity and precision</title>
 
   <!-- Meta Description -->
-  <meta name="description" content="CnatGPT is a free tool that transforms unclear ideas into well-structured prompts for ChatGPT and other AIs. Simple, fast, and effective.">
+  <meta name="description"
+    content="CnatGPT is a free tool that transforms unclear ideas into well-structured prompts for ChatGPT and other AIs. Simple, fast, and effective.">
 
   <!-- Meta Keywords (optional) -->
-  <meta name="keywords" content="prompt generator, improve prompts, AI assistant, ChatGPT prompts, clear prompts, CnatGPT, AI tools">
+  <meta name="keywords"
+    content="prompt generator, improve prompts, AI assistant, ChatGPT prompts, clear prompts, CnatGPT, AI tools">
 
   <!-- Meta Robots -->
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph for social media (Facebook, LinkedIn, etc.) -->
   <meta property="og:title" content="CnatGPT - Turn vague ideas into powerful prompts">
-  <meta property="og:description" content="Use CnatGPT to generate optimized prompts for ChatGPT. Clear, concise, and ready to copy.">
+  <meta property="og:description"
+    content="Use CnatGPT to generate optimized prompts for ChatGPT. Clear, concise, and ready to copy.">
   <meta property="og:url" content="https://www.cnatgpt.com">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.cnatgpt.com/assets/social-preview.png">
@@ -37,7 +40,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CnatGPT - Make your AI prompts stronger and smarter">
-  <meta name="twitter:description" content="Free tool to convert unclear instructions into optimized prompts for ChatGPT and other AI tools.">
+  <meta name="twitter:description"
+    content="Free tool to convert unclear instructions into optimized prompts for ChatGPT and other AI tools.">
   <meta name="twitter:image" content="https://www.cnatgpt.com/assets/social-preview.png">
 
 
@@ -52,67 +56,70 @@
   </style>
   <style>
     .blinking-cursor {
-        display: inline-block;
-        width: 2px;
-        height: 18px;
-        background-color: rgb(68, 68, 68);
-        margin-top: 2px;
-        position: relative;
-        right: 3px;
-        top: 1px;
-        animation: blink 1s step-end infinite;
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background-color: rgb(68, 68, 68);
+      margin-top: 2px;
+      position: relative;
+      right: 3px;
+      top: 1px;
+      animation: blink 1s step-end infinite;
     }
-    
+
     @keyframes blink {
-        0%, 100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0;
-        }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
-    
+
     /* Versão alternativa com o caractere pipe | */
     .cursor-pipe {
-        color: white;
-        font-size: 18px;
-        font-weight: normal;
-        animation: blink 1s step-end infinite;
+      color: white;
+      font-size: 18px;
+      font-weight: normal;
+      animation: blink 1s step-end infinite;
     }
 
 
     .github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #333;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #333;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
 
-.github-link:hover {
-  color: #0366d6;
-}
+    .github-link:hover {
+      color: #0366d6;
+    }
 
-.github-icon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-</style>
+    .github-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors">
   <main class="max-w-2xl mx-auto p-6">
     <header class="text-center mb-8">
       <h1 class="text-3xl font-bold">CnatGPT</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300"><b>C</b>onvert <b>N</b>eeds into <b>A</b>ccurate <b>T</b>exts</p>
+      <p class="text-lg text-gray-600 dark:text-gray-300"><b>C</b>onvert <b>N</b>eeds into <b>A</b>ccurate <b>T</b>exts
+      </p>
     </header>
 
     <section class="text-center mb-6">
@@ -123,7 +130,7 @@
         Perfect for users who want better answers without wasting time. <span class="blinking-cursor"></span>
       </p>
     </section>
-    
+
 
     <section class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 space-y-4">
       <label for="inputPrompt" class="block font-medium">Describe your unclear prompt::</label>
@@ -140,59 +147,71 @@
 
         <div id="fixedButtons" class="hidden md:flex flex-wrap gap-2">
           <!-- Versão desktop permanece igual -->
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtn" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button> and continue to:</span>
-        <div class="flex flex-wrap justify-center gap-2">
-          
-          <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
-          <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
-          <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
-        </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtn"
+              class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button>
+            or continue to:</span>
+          <div class="flex flex-wrap justify-center gap-2">
+
+            <a  href="https://chat.openai.com" target="_blank"
+              class="chatgptLink bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
+            <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
+            <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
+          </div>
         </div>
 
         <!-- Versão fixa no mobile -->
-        <!-- Versão fixa no mobile -->
-      <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-900 shadow-inner px-4 py-3 flex flex-col items-center border-t dark:border-gray-700 space-y-2">
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtnMobile" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button> and continue to:</span>
-        <div class="flex flex-wrap justify-center gap-2">
+        <div
+          class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-900 shadow-inner px-4 py-3 flex flex-col items-center border-t dark:border-gray-700 space-y-2">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtnMobile"
+              class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button>
+            or continue to:</span>
+          <div class="flex flex-wrap justify-center gap-2">
 
-          <a href="https://chat.openai.com" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
-          <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
-          <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
+            <a href="https://chat.openai.com" target="_blank"
+              class="chatgptLink bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
+            <!-- <a href="https://claude.ai" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-1 px-3 rounded-md">Claude.ai</a> -->
+            <!-- <a href="https://www.deepseek.com/" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-1 px-3 rounded-md">Deepseek</a> -->
+          </div>
         </div>
-      </div>
 
 
       </div>
     </section>
 
     <footer class="text-center text-sm text-gray-500 mt-6">
-      Simple. Direct. Free.<br>v0.0.1<br>
+      Simple. Direct. Free.<br>v0.0.2<br>
 
       <br><br>
-      
-      <div class="flex justify-center items-center mt-4">
-      Share on
-      <!-- Facebook -->
-      <a class="p-3" href="https://www.facebook.com/sharer/sharer.php?u=https://cnatgpt.com" target="_blank" rel="noopener noreferrer">
-        <img src="./public/facebook-icon.svg" alt="Share on Facebook" class="w-6 h-6">
-      </a>
-      <!-- Twitter -->
-      <a class="p-3" href="https://x.com/intent/tweet?url=https://cnatgpt.com&text=Discover%20CnatGPT%20–%20clear%20and%20effective%20prompt%20generator!" target="_blank" rel="noopener noreferrer">
-        <img src="./public/x-icon.svg" alt="Share on Twitter" class="w-6 h-6">
-      </a>
-      <!-- WhatsApp -->
-      <a class="p-3" href="https://api.whatsapp.com/send?text=Check%20out%20CnatGPT%20–%20a%20free%20tool%20to%20generate%20clear%20and%20effective%20prompts:%20https://cnatgpt.com" target="_blank" rel="noopener noreferrer">
-        <img src="./public/whatsapp-icon.svg" alt="Share on WhatsApp" class="w-6 h-6">
-      </a>
-      <!-- LinkedIn -->
-      <a class="p-3" href="https://www.linkedin.com/sharing/share-offsite/?url=https://cnatgpt.com" target="_blank" rel="noopener noreferrer">
-        <img src="./public/linkedin-icon.svg" alt="Share on LinkedIn" class="w-6 h-6">
-      </a>
-    </div>
 
-<br>
-<br>
-<br>
+      <div class="flex justify-center items-center mt-4">
+        Share on
+        <!-- Facebook -->
+        <a class="p-3" href="https://www.facebook.com/sharer/sharer.php?u=https://cnatgpt.com" target="_blank"
+          rel="noopener noreferrer">
+          <img src="./public/facebook-icon.svg" alt="Share on Facebook" class="w-6 h-6">
+        </a>
+        <!-- Twitter -->
+        <a class="p-3"
+          href="https://x.com/intent/tweet?url=https://cnatgpt.com&text=Discover%20CnatGPT%20–%20clear%20and%20effective%20prompt%20generator!"
+          target="_blank" rel="noopener noreferrer">
+          <img src="./public/x-icon.svg" alt="Share on Twitter" class="w-6 h-6">
+        </a>
+        <!-- WhatsApp -->
+        <a class="p-3"
+          href="https://api.whatsapp.com/send?text=Check%20out%20CnatGPT%20–%20a%20free%20tool%20to%20generate%20clear%20and%20effective%20prompts:%20https://cnatgpt.com"
+          target="_blank" rel="noopener noreferrer">
+          <img src="./public/whatsapp-icon.svg" alt="Share on WhatsApp" class="w-6 h-6">
+        </a>
+        <!-- LinkedIn -->
+        <a class="p-3" href="https://www.linkedin.com/sharing/share-offsite/?url=https://cnatgpt.com" target="_blank"
+          rel="noopener noreferrer">
+          <img src="./public/linkedin-icon.svg" alt="Share on LinkedIn" class="w-6 h-6">
+        </a>
+      </div>
+
+      <br>
+      <br>
+      <br>
       <p>Made with ❤️</p>
 
     </footer>
@@ -204,6 +223,7 @@
     const outputPrompt = document.getElementById('outputPrompt');
     const copyBtn = document.getElementById('copyBtn');
     const copyBtnMobile = document.getElementById('copyBtnMobile');
+
     copyBtnMobile?.addEventListener('click', () => {
       const text = outputPrompt.textContent;
       navigator.clipboard.writeText(text).then(() => {
@@ -224,11 +244,20 @@
       <span>Generating your prompt...</span>
     `;
 
+    function makeChatGPTLink(text, model) {
+      const base = 'https://chat.openai.com/';
+      const params = new URLSearchParams();
+      params.set('prompt', text);
+      if (model) params.set('model', model);   // só adiciona se existir
+
+      return `${base}?${params.toString()}`;
+    }
+
     function otimizarPrompt(userPrompt) {
       userPrompt = userPrompt.charAt(0).toUpperCase() + userPrompt.slice(1);
       const textoInicial = "You are a precise, reliable, and clear AI assistant. Your task is to carefully understand the following request and provide a helpful response, free of errors, without making up information or making unjustified assumptions.\n\n" //"Você é um assistente de IA preciso, confiável e claro. Sua tarefa é compreender cuidadosamente o pedido a seguir e fornecer uma resposta útil, livre de erros, sem inventar informações ou fazer suposições injustificadas.\n\n";
       const textoFinal = "\n\nImportant: Respond with clarity, objectivity, and based on real knowledge. Avoid factual errors, hallucinations, or unfounded statements. If the information is unknown or unproven, make that clear. Structure the response logically and, if possible, use examples or bullet points to aid understanding. Maintain a tone consistent with the subject and appropriate for the target audience, avoiding ambiguities." //"\n\nImportante: Responda com clareza, objetividade e base em conhecimento real. Evite erros factuais, alucinações ou afirmações sem fundamento. Caso a informação não seja conhecida ou comprovada, deixe isso claro. Estruture a resposta de forma lógica e, se possível, use exemplos ou tópicos para facilitar a compreensão. Adote um tom coerente com o tema e adequado ao público-alvo, evitando ambiguidades.";
-      
+
       return `${textoInicial}${userPrompt}${textoFinal}`;
     }
 
@@ -239,11 +268,26 @@
       outputSection.classList.add('hidden');
       document.querySelector('section').appendChild(loadingDiv);
 
+      
+
       setTimeout(() => {
         const improved = otimizarPrompt(input);
         outputPrompt.textContent = improved;
         outputSection.classList.remove('hidden');
+
+        // change all chatgpt <a> hrefs to the new link
+        const chatgptLinks = document.querySelectorAll('.chatgptLink');
+        chatgptLinks.forEach(link => {
+          const href = makeChatGPTLink(improved);
+          link.href = href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        });
+        
+        
         loadingDiv.remove();
+
+
       }, 1); // Tempo do "loading"
     });
 
@@ -251,6 +295,7 @@
       const text = outputPrompt.textContent;
       navigator.clipboard.writeText(text).then(() => {
         copyBtn.textContent = 'Copied!';
+
         setTimeout(() => (copyBtn.textContent = 'Copy'), 1000);
       });
     });

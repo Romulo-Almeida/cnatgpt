@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
   <!-- Google tag (gtag.js) -->
@@ -15,11 +15,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>CnatGPT - Enhance your AI prompts with clarity and precision</title>
+
   <meta name="description"
     content="CnatGPT is a free tool that transforms unclear ideas into well-structured prompts for ChatGPT and other AIs. Simple, fast, and effective.">
 
+  <meta name="keywords"
+    content="prompt generator, improve prompts, AI assistant, ChatGPT prompts, clear prompts, CnatGPT, AI tools">
+
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="CnatGPT - Turn vague ideas into powerful prompts">
+  <meta property="og:description"
+    content="Use CnatGPT to generate optimized prompts for ChatGPT. Clear, concise, and ready to copy.">
+  <meta property="og:url" content="https://www.cnatgpt.com">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.cnatgpt.com/assets/social-preview.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CnatGPT - Make your AI prompts stronger and smarter">
+  <meta name="twitter:description"
+    content="Free tool to convert unclear instructions into optimized prompts for ChatGPT and other AI tools.">
+  <meta name="twitter:image" content="https://www.cnatgpt.com/assets/social-preview.png">
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -27,7 +47,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* 🔹 Aviso superior fixo */
+    /* 🔹 Top sticky banner */
     #redirect-banner {
       background-color: #fde68a;
       color: #1f2937;
@@ -52,14 +72,70 @@
     #redirect-banner a:hover {
       color: #1d4ed8;
     }
+
+    .blinking-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background-color: rgb(68, 68, 68);
+      margin-top: 2px;
+      position: relative;
+      right: 3px;
+      top: 1px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .cursor-pipe {
+      color: white;
+      font-size: 18px;
+      font-weight: normal;
+      animation: blink 1s step-end infinite;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #333;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .github-link:hover {
+      color: #0366d6;
+    }
+
+    .github-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
   </style>
 </head>
 
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors">
-  <!-- 🔹 Banner de redirecionamento -->
+
+  <!-- 🔹 Redirect banner -->
   <div id="redirect-banner">
-    Are you going to ChatGPT? Your are in <b>CnatGPT</b>, a prompt generator.
-    <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">Click here to go to official ChatGPT</a>
+    Thought you were on ChatGPT? You’re actually on <b>CnatGPT</b>, a prompt generator.
+    <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">Go to the official ChatGPT</a>
   </div>
 
   <main class="max-w-2xl mx-auto p-6">
@@ -70,7 +146,7 @@
     </header>
 
     <section class="text-center mb-6">
-      <h2 class="text-xl font-semibold">💡 About it</h2>
+      <h2 class="text-xl font-semibold">💡 About</h2>
       <p class="text-gray-700 dark:text-gray-300 mt-2">
         CnatGPT is a free tool that transforms vague ideas into clear and effective prompts for ChatGPT and other AIs.
         <br>
@@ -78,8 +154,150 @@
       </p>
     </section>
 
-    <!-- resto do seu HTML permanece igual -->
-    <!-- ... -->
+    <section class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 space-y-4">
+      <label for="inputPrompt" class="block font-medium">Describe your unclear prompt:</label>
+      <textarea id="inputPrompt" rows="5"
+        placeholder="Eg: I need a funny text about technology that is also inspiring..."
+        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+
+      <button id="convertBtn"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">Convert</button>
+
+      <div id="outputSection" class="hidden space-y-3">
+        <p class="font-semibold">✅ Your improved prompt:</p>
+        <div id="outputPrompt" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-md text-sm whitespace-pre-wrap"></div>
+
+        <div id="fixedButtons" class="hidden md:flex flex-wrap gap-2">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtn"
+              class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button>
+            or continue to:</span>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a href="https://chat.openai.com" target="_blank"
+              class="chatgptLink bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
+          </div>
+        </div>
+
+        <div
+          class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-900 shadow-inner px-4 py-3 flex flex-col items-center border-t dark:border-gray-700 space-y-2">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300"><button id="copyBtnMobile"
+              class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-3 px-10 rounded-md">Copy</button>
+            or continue to:</span>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a href="https://chat.openai.com" target="_blank"
+              class="chatgptLink bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-10 rounded-md">ChatGPT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-sm text-gray-500 mt-6">
+      Simple. Direct. Free.<br>v0.0.2<br><br><br>
+
+      <div class="flex justify-center items-center mt-4">
+        Share on
+        <a class="p-3" href="https://www.facebook.com/sharer/sharer.php?u=https://cnatgpt.com" target="_blank"
+          rel="noopener noreferrer">
+          <img src="./public/facebook-icon.svg" alt="Share on Facebook" class="w-6 h-6">
+        </a>
+        <a class="p-3"
+          href="https://x.com/intent/tweet?url=https://cnatgpt.com&text=Discover%20CnatGPT%20–%20clear%20and%20effective%20prompt%20generator!"
+          target="_blank" rel="noopener noreferrer">
+          <img src="./public/x-icon.svg" alt="Share on Twitter" class="w-6 h-6">
+        </a>
+        <a class="p-3"
+          href="https://api.whatsapp.com/send?text=Check%20out%20CnatGPT%20–%20a%20free%20tool%20to%20generate%20clear%20and%20effective%20prompts:%20https://cnatgpt.com"
+          target="_blank" rel="noopener noreferrer">
+          <img src="./public/whatsapp-icon.svg" alt="Share on WhatsApp" class="w-6 h-6">
+        </a>
+        <a class="p-3" href="https://www.linkedin.com/sharing/share-offsite/?url=https://cnatgpt.com" target="_blank"
+          rel="noopener noreferrer">
+          <img src="./public/linkedin-icon.svg" alt="Share on LinkedIn" class="w-6 h-6">
+        </a>
+      </div>
+
+      <br><br><br>
+      <p>Made with ❤️</p>
+      <br />
+      <a href="https://github.com/Romulo-Almeida/cnatgpt" target="_blank" rel="noopener noreferrer" class="github-link">
+        <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+        <span>GitHub</span>
+      </a>
+    </footer>
   </main>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn');
+    const outputSection = document.getElementById('outputSection');
+    const outputPrompt = document.getElementById('outputPrompt');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyBtnMobile = document.getElementById('copyBtnMobile');
+
+    copyBtnMobile?.addEventListener('click', () => {
+      const text = outputPrompt.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtnMobile.textContent = 'Copied!';
+        setTimeout(() => (copyBtnMobile.textContent = 'Copy'), 1000);
+      });
+    });
+
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loading';
+    loadingDiv.className = 'flex items-center justify-center space-x-2 text-blue-600 font-medium';
+    loadingDiv.innerHTML = `
+      <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+      <span>Generating your prompt...</span>
+    `;
+
+    function makeChatGPTLink(text, model) {
+      const base = 'https://chat.openai.com/';
+      const params = new URLSearchParams();
+      params.set('prompt', text);
+      if (model) params.set('model', model);
+      return `${base}?${params.toString()}`;
+    }
+
+    function optimizePrompt(userPrompt) {
+      userPrompt = userPrompt.charAt(0).toUpperCase() + userPrompt.slice(1);
+      const intro = "You are a precise, reliable, and clear AI assistant. Your task is to carefully understand the following request and provide a helpful response, free of errors, without making up information or unjustified assumptions.\n\n";
+      const outro = "\n\nImportant: Respond with clarity, objectivity, and based on real knowledge. Avoid factual errors, hallucinations, or unfounded statements. If the information is unknown or unproven, make that clear. Structure the response logically and, if possible, use examples or bullet points to aid understanding. Maintain a tone consistent with the subject and appropriate for the target audience, avoiding ambiguities.";
+      return `${intro}<prompt>${userPrompt}</prompt>${outro}`;
+    }
+
+    convertBtn.addEventListener('click', () => {
+      const input = document.getElementById('inputPrompt').value.trim();
+      if (!input) return;
+      outputSection.classList.add('hidden');
+      document.querySelector('section').appendChild(loadingDiv);
+
+      setTimeout(() => {
+        const improved = optimizePrompt(input);
+        outputPrompt.textContent = improved;
+        outputSection.classList.remove('hidden');
+        const chatgptLinks = document.querySelectorAll('.chatgptLink');
+        chatgptLinks.forEach(link => {
+          const href = makeChatGPTLink(improved);
+          link.href = href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        });
+        loadingDiv.remove();
+      }, 1);
+    });
+
+    copyBtn.addEventListener('click', () => {
+      const text = outputPrompt.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = 'Copy'), 1000);
+      });
+    });
+  </script>
+
 </body>
 </html>
